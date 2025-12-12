@@ -1,0 +1,103 @@
+body.intro-body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at center, #2b0f18 0%, #080005 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+/* 開く */
+.door.open {
+  transform: rotateY(-120deg);
+  box-shadow: 0 0 50px hotpink;
+}
+
+/* 光が差す感じ */
+.door.glow {
+  box-shadow: 0 0 40px rgba(255, 105, 180, 0.7), 0 0 80px rgba(255, 105, 180, 0.5);
+}
+
+/* 開店後フェードアウト */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.door-wrap {
+  position: relative;
+  width: 320px;
+  height: 520px;
+  perspective: 1200px;
+}
+
+/* ロゴをドア上に重ねる */
+.door-logo {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  opacity: 1;
+  transition: transform 1.5s ease, opacity 1.5s ease;
+  z-index: 2;
+}
+
+/* ロゴがフェード＋拡大して消える */
+.door-logo.fade-out {
+  transform: translateX(-50%) scale(2);
+  opacity: 0;
+}
+
+/* ドア本体 */
+.door {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  transform-origin: left center;
+  transition: transform 1.8s ease-in-out, box-shadow 0.4s ease;
+}
+
+/* index.html本編ページ用 */
+.lp-body {
+  margin: 0;
+  padding: 0;
+  background-color: #d12d6b; /* 濃いめピンク */
+  color: #fff;
+  font-family: "Yu Gothic", sans-serif;
+}
+
+/* セクション */
+.lp-section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* タイトル */
+.lp-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+/* 章タイトル */
+.lp-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #fff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* フッター */
+.lp-footer {
+  text-align: center;
+  padding: 40px 0;
+  opacity: 0.8;
+}
