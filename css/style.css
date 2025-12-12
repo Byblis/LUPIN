@@ -1,3 +1,16 @@
+/* ==============================
+   共通：レイアウト安定用
+============================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ==============================
+   イントロページ（intro.html）用
+============================== */
+
 body.intro-body {
   margin: 0;
   height: 100vh;
@@ -9,23 +22,7 @@ body.intro-body {
   perspective: 1000px;
 }
 
-/* 開く */
-.door.open {
-  transform: rotateY(-120deg);
-  box-shadow: 0 0 50px hotpink;
-}
-
-/* 光が差す感じ */
-.door.glow {
-  box-shadow: 0 0 40px rgba(255, 105, 180, 0.7), 0 0 80px rgba(255, 105, 180, 0.5);
-}
-
-/* 開店後フェードアウト */
-.fade-out {
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-
+/* ドア全体の包み */
 .door-wrap {
   position: relative;
   width: 320px;
@@ -61,43 +58,151 @@ body.intro-body {
   transition: transform 1.8s ease-in-out, box-shadow 0.4s ease;
 }
 
-/* index.html本編ページ用 */
-.lp-body {
+/* ドアが開いたとき */
+.door.open {
+  transform: rotateY(-120deg);
+  box-shadow: 0 0 50px hotpink;
+}
+
+/* 光が差す感じ（ノック後） */
+.door.glow {
+  box-shadow: 0 0 40px rgba(255, 105, 180, 0.7),
+              0 0 80px rgba(255, 105, 180, 0.5);
+}
+
+/* フェードアウト共通（bodyなどに付ける） */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+/* ==============================
+   本編ページ（index.html）用
+   モバイルファースト
+============================== */
+
+/* 本編のbody（<body class="body">） */
+body.body {
   margin: 0;
-  padding: 0;
-  background-color: #d12d6b; /* 濃いめピンク */
+  padding: 80px 0 40px;   /* 上に少し余白 */
+  background-color: #d12d71; /* 濃いめピンク */
   color: #fff;
   font-family: "Yu Gothic", sans-serif;
 }
 
-/* セクション */
-.lp-section {
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: 0 auto;
-  line-height: 1.8;
+/* ヘッダー／タイトルのコンテナ */
+.header {
+  text-align: center;
+  padding: 0 16px;
 }
 
-/* タイトル */
-.lp-title {
-  text-align: center;
-  font-size: 3rem;
-  margin-top: 40px;
+/* ページタイトル「スナックルパンへようこそ♡」 */
+.title {
+  font-size: 2.6rem;      /* スマホでは控えめサイズ */
+  margin: 0 0 24px;
   font-weight: bold;
 }
 
-/* 章タイトル */
-.lp-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+/* セクション共通 */
+.section {
+  width: 100%;
+  max-width: 100%;        /* スマホでは画面いっぱい */
+  margin: 0 auto;
+  padding: 40px 16px;
+  line-height: 1.8;
+  text-align: center;     /* 文字は中央寄せに */
+}
+
+/* セクション見出し h2 */
+.section h2 {
+  font-size: 1.4rem;
+  margin: 0 0 16px;
   border-bottom: 2px solid #fff;
   display: inline-block;
-  padding-bottom: 5px;
+  padding-bottom: 4px;
+}
+
+/* 本文の文字 */
+.section p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* OPEN DAY セクションだけ少し余白を多めに */
+.open-day {
+  padding-top: 60px;
+}
+
+/* カレンダー画像：スマホでは横幅いっぱい */
+.calendar-img {
+  display: block;
+  margin: 24px auto 0;
+  width: 100%;
+  max-width: 800px;  /* 画像実サイズを超えない程度に */
+  height: auto;
 }
 
 /* フッター */
-.lp-footer {
+.footer {
   text-align: center;
-  padding: 40px 0;
+  padding: 40px 0 0;
+  font-size: 0.8rem;
   opacity: 0.8;
+}
+
+/* ==============================
+   画面幅 768px 以上
+   （タブレット〜小さめPC）
+============================== */
+
+@media (min-width: 768px) {
+  body.body {
+    padding-top: 120px;         /* 上の余白をちょっと増やす */
+  }
+
+  .title {
+    font-size: 4rem;            /* タイトルを大きく */
+    margin-bottom: 32px;
+  }
+
+  .section {
+    max-width: 720px;           /* 行が長くなり過ぎないように */
+    padding: 60px 24px;
+  }
+
+  .section h2 {
+    font-size: 1.6rem;
+  }
+
+  .section p {
+    font-size: 1rem;
+  }
+}
+
+/* ==============================
+   画面幅 1024px 以上
+   （PC・ワイド画面）
+============================== */
+
+@media (min-width: 1024px) {
+  body.body {
+    padding-top: 150px;         /* PCではゆったり余白を */
+  }
+
+  .title {
+    font-size: 5rem;            /* ドーンと大きく */
+  }
+
+  .section {
+    max-width: 960px;           /* 読みやすい横幅 */
+    padding: 80px 32px;
+  }
+
+  .section h2 {
+    font-size: 1.8rem;
+  }
+
+  .calendar-img {
+    max-width: 1100px;          /* カレンダーを大きめに */
+  }
 }
