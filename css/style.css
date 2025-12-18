@@ -231,4 +231,19 @@ body.body {
     height: 280px;
   }
 }
+.closing {
+  padding: 60px 16px 40px;
+}
+
+.closing-text {
+  font-size: 2rem;
+  line-height: 2;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+@media (max-width: 480px) {
+  .closing-text {
+    font-size: 1.15rem;
+  }
+}
 
