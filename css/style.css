@@ -125,7 +125,7 @@ body.body {
 /* 本文の文字 */
 .section p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 /* OPEN DAY セクションだけ少し余白を多めに */
@@ -211,5 +211,24 @@ body.body {
   width: 100%;
   height: 350px;
   border-radius: 12px;
+}
+ 
+@media (max-width: 480px) {
+  body.body {
+    padding-top: 64px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .section {
+    padding: 32px 16px;
+  }
+
+  .map-wrap iframe {
+    height: 280px;
+  }
 }
 
