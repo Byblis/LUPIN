@@ -23,7 +23,7 @@ door.addEventListener('click', () => {
     }, 1300);
 
     setTimeout(() => {
-      window.location.href = "home.html";
+      window.location.href = "index.html";
     }, 2600);
   }
 });
