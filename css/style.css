@@ -96,9 +96,8 @@ body.body {
   padding: 0 16px;
 }
 
-/* ページタイトル「スナックルパンへようこそ♡」 */
 .title {
-  font-size: 2.6rem;      /* スマホでは控えめサイズ */
+  font-size: 2rem;
   margin: 0 0 24px;
   font-weight: bold;
 }
@@ -245,5 +244,8 @@ body.body {
   .closing-text {
     font-size: 1.15rem;
   }
+}
+.closing-text {
+  font-size: 2rem;
 }
 
