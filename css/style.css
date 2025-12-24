@@ -235,6 +235,8 @@ body.body {
 }
 
 p.closing-text {
+  font-family: 'Kiwi Maru', sans-serif;
+  font-weight: 500; 
   font-size: 2rem;
   line-height: 2;
   letter-spacing: 0.05em;
