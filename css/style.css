@@ -250,3 +250,40 @@ p.closing-text {
 .closing-text {
   font-size: 2rem;
 }
+
+/* 背景に降る唇：クリック等の邪魔をしない */
+#lips-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0; /* 背景にしたいなら低め */
+}
+
+/* コンテンツを前に出す（必要なら） */
+main, header, .section {
+  position: relative;
+  z-index: 1;
+}
+
+.lip {
+  position: absolute;
+  top: -10vh;
+  opacity: 0.18;            /* 控えめが上品 */
+  font-size: 24px;
+  filter: blur(0.2px);
+  animation-name: lip-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes lip-fall {
+  to {
+    transform: translate(var(--drift), 120vh) rotate(var(--rot));
+  }
+}
+
+/* 動きが苦手な人向け（OS設定で自動OFF） */
+@media (prefers-reduced-motion: reduce) {
+  #lips-bg { display: none; }
+}
