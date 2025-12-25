@@ -61,5 +61,11 @@ if (door) {
   }
 })();
 
+const isMobile = window.innerWidth <= 480;
+
+const size = isMobile
+  ? 26 + Math.random() * 20   // スマホ
+  : 40 + Math.random() * 40;  // PC
+
 
 
