@@ -257,7 +257,7 @@ p.closing-text {
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: 0; /* 背景にしたいなら低め */
+  z-index: 9999; /* 背景にしたいなら低め */
 }
 
 /* コンテンツを前に出す（必要なら） */
@@ -269,7 +269,7 @@ main, header, .section {
 .lip {
   position: absolute;
   top: -10vh;
-  opacity: 0.18;            /* 控えめが上品 */
+  opacity: 0.6;            /* 控えめが上品 */
   font-size: 24px;
   filter: blur(0.2px);
   animation-name: lip-fall;

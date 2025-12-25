@@ -2,31 +2,30 @@ let clickCount = 0;
 const door = document.getElementById('door');
 const logo = document.getElementById('logo');
 
-door.addEventListener('click', () => {
-  clickCount++;
+if (door) {
+  door.addEventListener('click', () => {
+    clickCount++;
 
-  if (clickCount === 1) {
-    door.classList.add('glow');
-    new Audio('sounds/knock.mp3').play().catch(() => {});
-  }
+    if (clickCount === 1) {
+      door.classList.add('glow');
+      new Audio('sounds/knock.mp3').play().catch(() => {});
+    }
 
-  if (clickCount === 2) {
-    // ロゴふわっと消える
-    logo.classList.add('fade-out');
+    if (clickCount === 2) {
+      if (logo) logo.classList.add('fade-out');
+      door.classList.add('open');
 
-    // ドア開く
-    door.classList.add('open');
+      setTimeout(() => {
+        document.body.classList.add('fade-out');
+      }, 1300);
 
-    // ページ遷移
-    setTimeout(() => {
-      document.body.classList.add('fade-out');
-    }, 1300);
+      setTimeout(() => {
+        window.location.href = "home.html";
+      }, 2600);
+    }
+  });
+}
 
-    setTimeout(() => {
-      window.location.href = "home.html";
-    }, 2600);
-  }
-});
 
 (() => {
   const layer = document.getElementById("lips-bg");
@@ -43,12 +42,12 @@ door.addEventListener('click', () => {
 
     // ランダム設定
     const left = Math.random() * 100;           // vw
-    const size = 20 + Math.random() * 18;       // px
-    const duration = 10 + Math.random() * 10;   // sec
+    const size = 40 + Math.random() * 40;       // px
+    const duration = 12 + Math.random() * 10;   // sec
     const delay = Math.random() * 10;           // sec
     const drift = (-20 + Math.random() * 40);   // vw
     const rot = (-60 + Math.random() * 120);    // deg
-    const opacity = 0.10 + Math.random() * 0.18;
+    const opacity = 0.22 + Math.random() * 0.25;
 
     img.style.left = `${left}vw`;
     img.style.width = `${size}px`;
