@@ -42,7 +42,7 @@ if (door) {
 
     // ランダム設定
     const left = Math.random() * 100;           // vw
-    const size = 40 + Math.random() * 40;       // px
+    const size = 30 + Math.random() * 30;       // px
     const duration = 12 + Math.random() * 10;   // sec
     const delay = Math.random() * 10;           // sec
     const drift = (-20 + Math.random() * 40);   // vw
